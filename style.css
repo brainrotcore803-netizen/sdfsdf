@@ -882,7 +882,9 @@ body {
   align-content: center;
   gap: 15px;
   min-height: 72px;
-  padding: 0 24px 0 80px;
+  padding: 12px 24px 12px 80px;
+  background: rgba(16, 26, 37, 0.55);
+  backdrop-filter: blur(14px);
 }
 
 .hero-badge {
@@ -897,7 +899,7 @@ body {
   font-size: 12px;
   line-height: 1.25;
   text-align: left;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .hero-badge .certification-dot {
@@ -1284,7 +1286,7 @@ body {
   color: var(--white);
 }
 
-@media (max-width: 1240px) {
+@media (max-width: 1300px) {
   .footer-inner {
     padding: 64px 40px 40px;
   }
@@ -1353,7 +1355,7 @@ body {
   .hero-video::before,
   .hero-badges {
     min-height: 108px;
-    height: 108px;
+    height: auto;
   }
 
   .site-footer .footer-inner {
@@ -1450,13 +1452,12 @@ body {
   }
 
   .hero-video::before {
-    height: 176px;
+    height: auto;
   }
 
   .hero-badges {
-    height: 176px;
     min-height: 176px;
-    padding: 0 24px 0 16px;
+    padding: 16px 24px 16px 16px;
   }
 
   .hero-content {
