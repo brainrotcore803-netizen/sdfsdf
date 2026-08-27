@@ -993,7 +993,7 @@ body {
 
 .services-page {
   min-height: 720px;
-  padding: 0 var(--page-gutter) 120px;
+  padding: 0 0.7cm 120px;
   background: #f3f7fc;
 }
 
@@ -1002,9 +1002,10 @@ body {
   isolation: isolate;
   display: flex;
   align-items: center;
-  width: calc(100% + (var(--page-gutter) * 2));
-  min-height: min(640px, calc(100svh - 56px));
-  margin-left: calc(var(--page-gutter) * -1);
+  width: calc(100% + 1.4cm);
+  height: 12cm;
+  min-height: 12cm;
+  margin-left: -0.7cm;
   overflow: hidden;
   background: #101010;
   color: var(--white);
@@ -1068,9 +1069,48 @@ body {
 
 .services-hero .services-eyebrow {
   margin-bottom: 34px;
-  color: #dce8f5;
-  font-size: 11px;
+  display: flex;
+  align-items: center;
+  color: #aab4c2;
+  font-size: 0;
+  line-height: 1;
   text-transform: none;
+}
+
+.services-hero .services-eyebrow::before {
+  display: inline-block;
+  flex: 0 0 5px;
+  width: 5px;
+  height: 14px;
+  margin-right: 6px;
+  background: var(--blue);
+  content: '';
+}
+
+.services-hero .services-eyebrow::after {
+  color: transparent;
+  font-size: 14px;
+  font-weight: 700;
+  content: 'Our Service /';
+  background: linear-gradient(90deg, #aab4c2 0 12ch, var(--white) 12ch 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+body:has(#document-scanning) .services-hero .services-eyebrow::after {
+  content: 'Our Service / Document Scanning';
+}
+
+body:has(#bpo-workflows) .services-hero .services-eyebrow::after {
+  content: 'Our Service / DX | BPO Workflows';
+}
+
+body:has(#legacy-data-transformation) .services-hero .services-eyebrow::after {
+  content: 'Our Service / DX | Legacy Data Transformation';
+}
+
+body:has(#ai-ready-processing) .services-hero .services-eyebrow::after {
+  content: 'Our Service / AI-Ready Processing Foundations';
 }
 
 .services-hero h1 {
@@ -1106,6 +1146,13 @@ body {
   padding: 112px 0 24px;
 }
 
+.service-single {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 112px max(0px, calc(var(--page-gutter) - 0.7cm)) 24px;
+}
+
 .service-feature-list {
   display: grid;
   gap: 64px;
@@ -1117,20 +1164,10 @@ body {
   gap: clamp(32px, 6vw, 96px);
   align-items: stretch;
   padding-bottom: 64px;
-  border-bottom: 1px solid #c8d6e6;
 }
 
 .service-item {
   padding: 24px 0;
-  border-bottom: 1px solid #dbe5f0;
-}
-
-.service-item:first-child {
-  border-top: 1px solid #dbe5f0;
-}
-
-.service-feature .service-item {
-  border-top: 1px solid #dbe5f0;
 }
 
 .service-item h2 {
@@ -1138,6 +1175,25 @@ body {
   color: var(--navy);
   font-family: 'Manrope', sans-serif;
   font-size: 20px;
+}
+
+body:has(#document-scanning) .service-feature .service-item {
+  border-top-color: var(--blue);
+}
+
+body:has(#document-scanning) .service-item h2 {
+  color: #000000;
+  font-size: 14px;
+}
+
+body:has(#document-scanning) .service-item h2::before {
+  display: inline-block;
+  width: 5px;
+  height: 42px;
+  margin: 0 12px 0 0;
+  vertical-align: middle;
+  background: var(--blue);
+  content: '';
 }
 
 .service-item p {
@@ -1236,10 +1292,7 @@ body {
 }
 
 .services-divider {
-  width: calc(100% + (var(--page-gutter) * 2));
-  margin-top: 48px;
-  margin-left: calc(var(--page-gutter) * -1);
-  border-top: 1px solid #c8d6e6;
+  display: none;
 }
 
 .site-footer {
@@ -1458,6 +1511,10 @@ body {
     grid-template-columns: 1fr;
     gap: 48px;
     padding-bottom: 48px;
+
+  .service-single {
+    padding-top: 64px;
+  }
   }
 
   .service-video-box {
@@ -1536,7 +1593,8 @@ body {
   }
 
   .services-hero {
-    min-height: 580px;
+    height: 12cm;
+    min-height: 12cm;
   }
 
   .services-hero-content {

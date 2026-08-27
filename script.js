@@ -9,6 +9,10 @@ menuToggle.addEventListener('click', () => {
 
 dropdownToggles.forEach((toggle) => {
   toggle.addEventListener('click', () => {
+    if (toggle.tagName === 'A') {
+      return;
+    }
+
     const dropdown = toggle.closest('.has-dropdown');
     const isOpen = dropdown.classList.toggle('is-open');
 
